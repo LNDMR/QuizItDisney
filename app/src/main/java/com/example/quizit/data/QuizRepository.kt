@@ -17,6 +17,7 @@ class QuizRepository {
             Question("Geppetto is Peter Pan’s dad.", false),
             Question("Bambi was released in the 40s.", true)
         )
+
        //Mulan is set in Japan. False, it’s set in China
        //Ursula is a character in ‘Cinderella’. False, in the little Mermaid
        //Mufasa is Simba’s uncle. False, he is his dad.
@@ -28,7 +29,7 @@ class QuizRepository {
        //Geppetto is Peter Pan’s dad. False, it’s Pinocchio’s
        //Bambi was released in the 40s. True
 
-        return questionList.shuffled()
+        return questionList
 
     }
 }

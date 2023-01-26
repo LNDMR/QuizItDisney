@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.quizit.QuizViewModel
@@ -31,17 +32,20 @@ class QuizFragment : Fragment() {
 
         binding.trueButton.setOnClickListener {
             viewModel.checkAnswer(true)
+            // Toast.makeText(this, viewModel.result, Toast.LENGTH_SHORT)
+            //     .show()
             updateUi()
         }
 
         binding.falseButton.setOnClickListener {
             viewModel.checkAnswer(false)
+            // Toast.makeText(this, viewModel.result, Toast.LENGTH_SHORT)
+            //     .show()
             updateUi()
         }
     }
 
     private fun updateUi() {
-        binding.scoreText.text = viewModel.score.toString()
         binding.questionText.text = viewModel.currentQuestion.question
 
         if(viewModel.quantity == 0) {

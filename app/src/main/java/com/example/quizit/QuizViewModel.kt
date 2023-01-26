@@ -22,16 +22,19 @@ class QuizViewModel : ViewModel() {
         get() = _quantity
 
     val totalQuantity = questions.size
+    var result: String = " "
 
     // read-and-write for ViewModel & read-only for fragment
-    private var _currentQuestion = questions.first()
+    private var _currentQuestion = questions.random()
     val currentQuestion: Question
         get() = _currentQuestion
 
 
     fun checkAnswer(isCorrect: Boolean) {
+        result = "false"
         if(isCorrect == currentQuestion.isCorrect) {
             _score++
+            result = "true"
         }
         getNextQuestion()
     }
@@ -42,7 +45,7 @@ class QuizViewModel : ViewModel() {
             _quantity = questions.size
         }
 
-        val nextQuestion = questions.first()
+        val nextQuestion = questions.random()
         questions.remove(nextQuestion)
         _quantity--
         _currentQuestion = nextQuestion
